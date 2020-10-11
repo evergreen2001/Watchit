@@ -15,6 +15,7 @@
    <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +    result.poster_path" width='100px'>
   </div> -->
       <h1>Popular Movies</h1>
+
       <div class="row">
         <div class="col-lg-2 mt-3" v-for="result in results" :key="result.id">
           <div class="card">
@@ -25,6 +26,8 @@
             />
 
             <div class="card-body">
+        <router-link :to="{name:'moviesdetails' , params:{movies:result.id}}">
+
               <h6 class="card-title">{{ result.title }}</h6>
               <h6 class="card-title">{{ new Date(result.release_date).toLocaleDateString(
                 
@@ -34,10 +37,14 @@
     month: 'long',
     day: 'numeric'
   }) }}</h6>
+
+        </router-link>
+
             </div>
           </div>
         </div>
       </div>
+
       <!-- latest -->
       <h1>Popular TV series</h1>
 
