@@ -22,7 +22,7 @@
             <img
               class="card-img-top"
               :src="'https://image.tmdb.org/t/p/w500/' + result.poster_path"
-              alt=""
+              alt="image"
             />
 
             <div class="card-body">
@@ -50,7 +50,7 @@
 
       <div class="row pt-5">
         <div
-          class="col-lg-2 mt-3"
+          class="col-lg-2 mt-5"
           v-for="result in latestresults"
           :key="result.id"
         >
@@ -93,7 +93,7 @@ export default {
       .then((res) => {
         this.results = res.data.results;
 
-        console.log(res.data.results);
+        // console.log(res.data.results);
       });
 
     axios
