@@ -24,7 +24,7 @@
               />
             </div>
 
-            <div class="col-lg-6 right py-4">
+            <div class="col-lg-6 right py-4 ">
               <h1 class="title">{{ details.title }}</h1>
               <p>{{ details.tagline }}</p>
               <span>
@@ -32,9 +32,9 @@
               </span>
 
               <span> {{ details.runtime }}Min </span>
-              <span v-for="genre in details.genres" :key='genre'> {{ genre.name }}</span>
-
-            
+              <span v-for="genre in details.genres" :key="genre">
+                {{ genre.name }}</span
+              >
 
               <p class="mt-3">{{ details.overview }}</p>
             </div>
@@ -113,13 +113,11 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  min-height: 600px;
-
-
-}.movie-details img{
+  min-height: 900px;
+}
+.movie-details img {
   border-radius: 30px;
 }
-
 
 .right {
   /* background-color:gold; */
@@ -138,7 +136,6 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 600px;
-  opacity: 99;
+  min-height: 900px;
 }
 </style>
