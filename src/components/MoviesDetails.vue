@@ -16,15 +16,15 @@
       <div class="overlay">
         <div class="container">
           <div class="row">
-            <div class="col-lg-4 rounded py-4">
+            <div class="col-lg-4 col-sm-4 rounded py-4">
               <img
                 :src="'https://image.tmdb.org/t/p/w500/' + details.poster_path"
                 alt="image"
-                class="img-fluid"
+                class="img-fluid d-none-sm"
               />
             </div>
 
-            <div class="col-lg-6 right py-4 ">
+            <div class="col-lg-6 col-md-6  col-sm-8 right py-4 ">
               <h1 class="title">{{ details.title }}</h1>
               <p>{{ details.tagline }}</p>
               <span>
@@ -43,17 +43,18 @@
       </div>
     </div>
 
-
     <div class="similar">
-
-      <SimilarMovies :similarmovies='similar' />
-      </div>
+    
+    
+      <SimilarMovies :similarmovies="similar" />
+    
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import SimilarMovies from './SimilarMovies'
+import SimilarMovies from "./SimilarMovies";
 export default {
   name: "MoviesDetails",
 
@@ -61,7 +62,8 @@ export default {
     return {
       loader: false,
       details: {},
-      similar:[]
+      similar: [],
+      issimilar:false
     };
   },
 
@@ -85,8 +87,7 @@ export default {
         this.loader = false;
       });
 
-
-       axios
+    axios
       .get(
         `https://api.themoviedb.org/3/movie/${this.$route.params.movies}/similar?api_key=e8f58896bca90b05f93d41fee275ea29&language=en-US&page=1`
       )
@@ -106,9 +107,9 @@ export default {
   },
   props: {},
   methods: {},
-  components:{
-    SimilarMovies
-  }
+  components: {
+    SimilarMovies,
+  },
 };
 </script>
 
@@ -148,12 +149,12 @@ export default {
 .movie-details img {
   border-radius: 30px;
   height: 50%;
-  margin: 12px auto ;
+  margin: 12px auto;
 }
 
 .right {
   background-color: rgba(0, 0, 0, 0.7);
-  height:400px;
+  height: 400px;
 
   color: #fff;
 }

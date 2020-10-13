@@ -125,7 +125,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 body{
  
   font-family: 'Staatliches', cursive;
@@ -145,7 +145,7 @@ h1 {
 .card {
   outline: none;
   border-radius: 20px;
-  max-height: 350px;
+  max-height: 450px;
 }
 .card img {
   outline: none;
