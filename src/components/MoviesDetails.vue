@@ -42,18 +42,26 @@
         </div>
       </div>
     </div>
+
+
+    <div class="similar">
+
+      <SimilarMovies :similarmovies='similar' />
+      </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import SimilarMovies from './SimilarMovies'
 export default {
-  name: "MoviesDetals",
+  name: "MoviesDetails",
 
   data() {
     return {
       loader: false,
       details: {},
+      similar:[]
     };
   },
 
@@ -76,9 +84,31 @@ export default {
       .finally(() => {
         this.loader = false;
       });
+
+
+       axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${this.$route.params.movies}/similar?api_key=e8f58896bca90b05f93d41fee275ea29&language=en-US&page=1`
+      )
+      .then((response) => {
+        this.similar = response.data.results;
+
+        console.log(response.data.results);
+
+        // console.log(this.$route.params.movies)
+      })
+      .catch((e) => {
+        alert(e);
+      })
+      .finally(() => {
+        // this.loader = false;
+      });
   },
   props: {},
   methods: {},
+  components:{
+    SimilarMovies
+  }
 };
 </script>
 
@@ -113,14 +143,18 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  min-height: 900px;
+  height: 500px;
 }
 .movie-details img {
   border-radius: 30px;
+  height: 50%;
+  margin: 12px auto ;
 }
 
 .right {
-  /* background-color:gold; */
+  background-color: rgba(0, 0, 0, 0.7);
+  height:400px;
+
   color: #fff;
 }
 .right span {
@@ -136,6 +170,6 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 900px;
+  height: 500px;
 }
 </style>

@@ -27,11 +27,9 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior () {
     // return desired position
-    to
-    from 
-    savedPosition
+  
     return { x: 0, y: 0 }
 
 
