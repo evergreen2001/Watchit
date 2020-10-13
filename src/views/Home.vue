@@ -126,8 +126,18 @@ export default {
 </script>
 
 <style scoped>
+body{
+ 
+  font-family: 'Staatliches', cursive;
+ 
+}
 .home {
   background-color: rgba(47, 58, 216, 0.829);
+  
+ 
+  font-family: 'Staatliches', cursive;
+ 
+
 }
 h1 {
   color: #fff;

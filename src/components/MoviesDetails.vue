@@ -1,50 +1,46 @@
 <template>
   <div>
-     <div class="loaderFlex d-flex mt-5">
-      <div v-if="loader" class="loader"></div>
+    <button class="btn shadow btnx" @click="$router.go(-1)">
+      <i class="fas fa-long-arrow-alt-left"> Back</i>
+    </button>
+    <div class="loaderFlex d-flex ">
+      <div v-show="loader" class="loader mt-5 py-5"></div>
     </div>
 
     <div
       class="movie-details"
-      v-for="(detail, index) in details"
-      :key="detail.id"
-      :index="index"
+      :style="{
+        backgroundImage: `url(https://image.tmdb.org/t/p/w500/${details.backdrop_path})`,
+      }"
+    >
+      <div class="overlay">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 rounded py-4">
+              <img
+                :src="'https://image.tmdb.org/t/p/w500/' + details.poster_path"
+                alt="image"
+                class="img-fluid"
+              />
+            </div>
 
+            <div class="col-lg-6 right py-4">
+              <h1 class="title">{{ details.title }}</h1>
+              <p>{{ details.tagline }}</p>
+              <span>
+                {{ new Date(details.release_date).getFullYear() }}
+              </span>
 
-      :style="{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${detail.backdrop_path})` }"
-  >
+              <span> {{ details.runtime }}Min </span>
+              <span v-for="genre in details.genres" :key='genre'> {{ genre.name }}</span>
 
-  <div class="overlay">
+            
 
-     <button class="btn shadow btnx" @click="$router.go(-1)">
-        <i class="fas fa-long-arrow-alt-left"> Back</i>
-      </button>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 rounded py-4">
-            <img
-              :src="'https://image.tmdb.org/t/p/w500/' + detail.poster_path"
-              alt="image"
-              class="img-fluid"
-            />
-          </div>
-
-          <div class="col-lg-6 right py-4">
-            <h1 class="title">{{ detail.title }}</h1>
-            <p>{{ detail.tagline }}</p>
-            <span> {{ new Date(detail.release_date).getFullYear() }} </span>
-
-            <span>   {{ detail.runtime}}Min </span>
-            <!-- <span>   {{ detail.runtime }}Min </span> -->
-
-
-            <p class="mt-3">{{ detail.overview }}</p>
+              <p class="mt-3">{{ details.overview }}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-   
     </div>
   </div>
 </template>
@@ -53,20 +49,24 @@
 import axios from "axios";
 export default {
   name: "MoviesDetals",
+
+  data() {
+    return {
+      loader: false,
+      details: {},
+    };
+  },
+
   created() {
     this.loader = true;
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${this.$route.params.movies},videos?api_key=e8f58896bca90b05f93d41fee275ea29&language=en-US`
+        `https://api.themoviedb.org/3/movie/${this.$route.params.movies}?api_key=e8f58896bca90b05f93d41fee275ea29&language=en-US`
       )
-      .then((res) => {
+      .then((response) => {
+        this.details = response.data;
 
-    
-        this.details = res.data;
-
-
-        console.log(this.details);
-        
+        console.log(response.data);
 
         // console.log(this.$route.params.movies)
       })
@@ -76,12 +76,6 @@ export default {
       .finally(() => {
         this.loader = false;
       });
-  },
-  data() {
-    return {
-      loader: false,
-      details: [],
-    };
   },
   props: {},
   methods: {},
@@ -116,33 +110,35 @@ export default {
 }
 
 .movie-details {
-  
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   position: relative;
-    min-height: 700px;
+  min-height: 600px;
 
- 
+
+}.movie-details img{
+  border-radius: 30px;
 }
+
 
 .right {
   /* background-color:gold; */
   color: #fff;
 }
-.right span{
+.right span {
   margin-right: 20px;
 }
 
 .title {
   font-size: 33px;
 }
-.overlay{
-      background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 700px;
+.overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 600px;
+  opacity: 99;
 }
-
 </style>
