@@ -46,9 +46,9 @@
       </div>
 
       <!-- latest -->
-      <h1>Popular TV series</h1>
+      <h1 class="pt-4 mt-5">Popular TV series</h1>
 
-      <div class="row pt-5">
+      <div class="row">
         <div
           class="col-lg-2 mt-5"
           v-for="result in latestresults"
