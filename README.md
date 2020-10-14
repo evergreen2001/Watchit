@@ -16,6 +16,7 @@ This section should list any major frameworks that you built your project using.
 * [TDMDB](https://developers.themoviedb.org/3/getting-started/introduction)
 
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d901f272-29a9-4c81-add7-6dd5ad0dc53c/deploy-status)](https://app.netlify.com/sites/watchitapp/deploys)
 
 
 ## Project setup
