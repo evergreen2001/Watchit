@@ -3,6 +3,7 @@
 ## Demo 
 ![](https://github.com/evergreen2001/Watchit/blob/main/docs/watchit-img.png)
 ![](https://github.com/evergreen2001/Watchit/blob/main/docs/watchit2.png)
+![](https://github.com/evergreen2001/Watchit/blob/main/docs/watchit3.png)
 ## Project setup
 ```
 npm install
