@@ -46,5 +46,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Contact
 
 Your Name - [@idoevergreen](https://twitter.com/idoevergreen) - dicksonevergreenido@gmail.com
-
 Project Link: [https://github.com/evergreen2001/Watchit](https://github.com/evergreen2001/Watchit)
