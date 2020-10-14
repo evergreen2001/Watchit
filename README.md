@@ -8,7 +8,7 @@
 
 ### Built With
 
-* [Bootstrap](https://getbootstrap.com)
+* [Bootstrap 4](https://getbootstrap.com)
 * [Vue 3](https://vuejs.org/)
 * [Vue Router](https://router.vuejs.org/)
 * [axios](https://www.npmjs.com/package/axios)
