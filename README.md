@@ -7,7 +7,7 @@
 
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+
 * [Bootstrap](https://getbootstrap.com)
 * [Vue 3](https://vuejs.org/)
 * [Vue Router](https://router.vuejs.org/)
@@ -45,6 +45,5 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Contact
-
-Your Name - [@idoevergreen](https://twitter.com/idoevergreen) - dicksonevergreenido@gmail.com
+Ido Dickson Evergreen - [@idoevergreen](https://twitter.com/idoevergreen) - dicksonevergreenido@gmail.com
 Project Link: [https://github.com/evergreen2001/Watchit](https://github.com/evergreen2001/Watchit)
